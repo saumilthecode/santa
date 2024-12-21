@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Website</title>
+    <style>
+        body {
+            background-color: lightblue;
+            text-align: center;
+            font-family: Arial;
+            overflow: hidden; 
+            position: relative;
+        }
+        h1 {
+            color: red;
+        }
+        img {
+            width: 400px;
+            height: 300px;
+        }
+        p {
+            color: white;
+            font-size: 20px;
+        }
+        .perspective-wrapper {
+            perspective: 800px;
+        }
+        .naughty-btn {
+            background-color: red;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .naughty-btn:hover {
+            background-color: darkred;
+            transform: rotateY(720deg);
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            font-size: 1.5rem;
+            color: white;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.5;
+            }
+        }
+        details {
+        border-radius: 4em;
+        padding: 0.5em 0.5em 0;
+        }
+
+        summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+        }
+
+        details[open] {
+        padding: 0.5em;
+        }
+
+        details[open] summary {
+        margin-bottom: 0.5em;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Merry Christmas!</h1>
+    <img src="https://cloud-9w4c8z9p5-hack-club-bot.vercel.app/0image.png" alt="Santa holding a bitcoin">
+    <p>Welcome to winter! It's cold and snowy.</p>
+    <div class="perspective-wrapper">
+        <a href="naughty.html" class="naughty-btn">Click here if you're curious... 👀</a>
+    </div>
+    <details>
+        <summary>Details</summary>
+        dont click the link!
+      </details>
+      
+
+    <script> //if this isent allowed feel free to remove it, it should work the same anyways just without the snow
+        const body = document.body;
+        const createSnowflake = () => {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+            body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        };
+
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
+</html>

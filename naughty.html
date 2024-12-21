@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uh oh...</title>
+    <style>
+        body {
+            background-color: darkred;
+            text-align: center;
+            font-family: system-ui;
+            padding: 20px;
+        }
+        h1 {
+            color: white;
+        }
+        h2 {
+            color: rgb(255, 255, 255);
+        }
+
+        .list {
+            background-color: white;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .back-btn {
+            background-color: rgb(156, 230, 255);
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: skyblue;
+        }
+        #location-message {
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>👻 Gotcha location!</h1>
+    <h2> You're on the naughty list now >:(</h2>
+    <div class="list">
+        <ul>
+            <li>Lisa - Still uses Internet Explorer</li>
+            <li>John Pork - Missed my calls</li>
+            <li>You - clicked on that button</li>
+        </ul>
+    </div>
+    <div id="location-message"></div>
+    <a href="index.html" class="back-btn">Delete my address pls</a>
+
+    <script> // this is completely for show pls dont disqualify me
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    document.getElementById('location-message').innerHTML = 
+                        "Santa knows where you are! 🎅";
+                },
+                function(error) {
+                    document.getElementById('location-message').innerHTML = 
+                        "Trying to hide from Santa? 🤔 Well too bad i know where you are anyways";
+                }
+            );
+        }
+    </script>
+</body>
+</html>
